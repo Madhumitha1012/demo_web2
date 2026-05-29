@@ -1,4 +1,164 @@
-<h1>Hello Everyone!!!!!</h1>
-<p>This is the our first github html code</p>
-<p>Simple website page</p>
-<h1>Welcome to page<h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WebBrand Landing Page</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: white;
+      background: #111;
+    }
+
+    header {
+      background: black;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      color: violet;
+      font-size: 28px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    .hero {
+      height: 90vh;
+      background: linear-gradient(to right, black, violet);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero-content {
+      max-width: 700px;
+    }
+
+    .hero h2 {
+      font-size: 55px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 30px;
+      color: #ddd;
+    }
+
+    .btn {
+      display: inline-block;
+      background: violet;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .features {
+      padding: 60px 20px;
+      text-align: center;
+      background: #1b1b1b;
+    }
+
+    .features h3 {
+      font-size: 36px;
+      margin-bottom: 40px;
+      color: violet;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: #2b2b2b;
+      padding: 30px;
+      border-radius: 10px;
+    }
+
+    .feature-card h4 {
+      color: violet;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background: black;
+      text-align: center;
+      padding: 20px;
+      color: #bbb;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>WebBrand</h1>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Projects</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Welcome to My WebBrand</h2>
+
+      <p>
+        We create modern websites, stylish designs, and powerful digital experiences for your brand.
+      </p>
+
+      <a href="#" class="btn">Start Now</a>
+    </div>
+  </section>
+
+  <section class="features">
+    <h3>Our Services</h3>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h4>Web Design</h4>
+        <p>Clean and modern website layouts.</p>
+      </div>
+
+      <div class="feature-card">
+        <h4>Development</h4>
+        <p>Fast and responsive websites for all devices.</p>
+      </div>
+
+      <div class="feature-card">
+        <h4>Branding</h4>
+        <p>Creative digital solutions for your business.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 WebBrand. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
