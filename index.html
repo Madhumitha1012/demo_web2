@@ -1,163 +1,393 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WebBrand Landing Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebBrand</title>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
     }
 
-    body {
-      font-family: Arial, sans-serif;
-      color: white;
-      background: #111;
+    html{
+      scroll-behavior:smooth;
     }
 
-    header {
-      background: black;
-      padding: 20px 50px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    body{
+      background:#090909;
+      color:white;
+      overflow-x:hidden;
     }
 
-    header h1 {
-      color: violet;
-      font-size: 28px;
+    /* BACKGROUND LIGHTS */
+
+    body::before{
+      content:"";
+      position:fixed;
+      width:500px;
+      height:500px;
+      background:violet;
+      filter:blur(180px);
+      top:-100px;
+      left:-100px;
+      opacity:0.25;
+      z-index:-1;
     }
 
-    nav a {
-      text-decoration: none;
-      color: white;
-      margin-left: 20px;
-      font-weight: bold;
+    body::after{
+      content:"";
+      position:fixed;
+      width:500px;
+      height:500px;
+      background:#6f00ff;
+      filter:blur(180px);
+      bottom:-120px;
+      right:-120px;
+      opacity:0.25;
+      z-index:-1;
     }
 
-    .hero {
-      height: 90vh;
-      background: linear-gradient(to right, black, violet);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
+    /* HEADER */
+
+    header{
+      width:100%;
+      position:fixed;
+      top:0;
+      left:0;
+      padding:20px 60px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:rgba(0,0,0,0.3);
+      backdrop-filter:blur(10px);
+      z-index:1000;
     }
 
-    .hero-content {
-      max-width: 700px;
+    header h1{
+      color:violet;
+      font-size:32px;
+      text-shadow:0 0 15px violet;
     }
 
-    .hero h2 {
-      font-size: 55px;
-      margin-bottom: 20px;
+    nav a{
+      color:white;
+      text-decoration:none;
+      margin-left:30px;
+      font-size:17px;
+      transition:0.3s;
     }
 
-    .hero p {
-      font-size: 20px;
-      margin-bottom: 30px;
-      color: #ddd;
+    nav a:hover{
+      color:violet;
     }
 
-    .btn {
-      display: inline-block;
-      background: violet;
-      color: white;
-      padding: 12px 28px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
+    /* HERO SECTION */
+
+    .hero{
+      height:100vh;
+      background:
+      linear-gradient(rgba(0,0,0,0.65),
+      rgba(0,0,0,0.65)),
+      url('https://images.unsplash.com/photo-1498050108023-c5249f4df085')
+      no-repeat center center/cover;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:20px;
     }
 
-    .features {
-      padding: 60px 20px;
-      text-align: center;
-      background: #1b1b1b;
+    .hero-content{
+      max-width:800px;
+      animation:fadeIn 2s ease;
     }
 
-    .features h3 {
-      font-size: 36px;
-      margin-bottom: 40px;
-      color: violet;
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(50px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
     }
 
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+    .hero h2{
+      font-size:75px;
+      margin-bottom:20px;
+      text-shadow:0 0 25px violet;
     }
 
-    .feature-card {
-      background: #2b2b2b;
-      padding: 30px;
-      border-radius: 10px;
+    .hero p{
+      font-size:24px;
+      color:#ddd;
+      margin-bottom:35px;
+      line-height:1.7;
     }
 
-    .feature-card h4 {
-      color: violet;
-      margin-bottom: 10px;
+    .btn{
+      display:inline-block;
+      background:linear-gradient(to right,violet,#7d2cff);
+      color:white;
+      padding:15px 35px;
+      border-radius:50px;
+      text-decoration:none;
+      font-size:18px;
+      font-weight:bold;
+      transition:0.4s;
+      box-shadow:0 0 20px rgba(148,0,211,0.5);
     }
 
-    footer {
-      background: black;
-      text-align: center;
-      padding: 20px;
-      color: #bbb;
+    .btn:hover{
+      transform:scale(1.08);
+      box-shadow:0 0 30px rgba(148,0,211,0.8);
     }
+
+    /* GALLERY */
+
+    .gallery{
+      padding:120px 60px;
+      text-align:center;
+    }
+
+    .gallery h3{
+      font-size:55px;
+      margin-bottom:60px;
+      color:white;
+      text-shadow:0 0 20px violet;
+    }
+
+    .images{
+      display:grid;
+      grid-template-columns:
+      repeat(auto-fit,minmax(300px,1fr));
+      gap:35px;
+    }
+
+    /* CARD */
+
+    .card{
+      background:
+      rgba(255,255,255,0.05);
+
+      border:
+      1px solid rgba(255,255,255,0.1);
+
+      border-radius:25px;
+
+      overflow:hidden;
+
+      backdrop-filter:blur(12px);
+
+      transition:0.5s;
+
+      box-shadow:
+      0 0 25px rgba(148,0,211,0.15);
+    }
+
+    .card:hover{
+      transform:
+      translateY(-12px)
+      scale(1.02);
+
+      box-shadow:
+      0 0 35px rgba(148,0,211,0.45);
+    }
+
+    .card img{
+      width:100%;
+      height:260px;
+      object-fit:cover;
+      transition:0.5s;
+    }
+
+    .card:hover img{
+      transform:scale(1.08);
+    }
+
+    .card-content{
+      padding:25px;
+    }
+
+    .card h4{
+      color:#c9b3ff;
+      font-size:28px;
+      margin-bottom:15px;
+    }
+
+    .card p{
+      color:#ddd;
+      line-height:1.8;
+      font-size:16px;
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:black;
+      text-align:center;
+      padding:25px;
+      color:#bbb;
+      border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:768px){
+
+      header{
+        padding:20px;
+        flex-direction:column;
+        gap:15px;
+      }
+
+      .hero h2{
+        font-size:48px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
+
+      .gallery{
+        padding:80px 20px;
+      }
+
+      .gallery h3{
+        font-size:40px;
+      }
+
+    }
+
   </style>
 </head>
 
 <body>
 
+  <!-- HEADER -->
+
   <header>
+
     <h1>WebBrand</h1>
 
     <nav>
       <a href="#">Home</a>
-      <a href="#">Projects</a>
+      <a href="#">Gallery</a>
       <a href="#">Contact</a>
     </nav>
+
   </header>
 
+  <!-- HERO SECTION -->
+
   <section class="hero">
+
     <div class="hero-content">
+
       <h2>Welcome to My WebBrand</h2>
 
       <p>
-        We create modern websites, stylish designs, and powerful digital experiences for your brand.
+        We create modern websites, stylish digital experiences,
+        and powerful branding solutions for the future.
       </p>
 
-      <a href="#" class="btn">Start Now</a>
+      <a href="#" class="btn">Explore More</a>
+
     </div>
+
   </section>
 
-  <section class="features">
-    <h3>Our Services</h3>
+  <!-- GALLERY -->
 
-    <div class="feature-grid">
-      <div class="feature-card">
-        <h4>Web Design</h4>
-        <p>Clean and modern website layouts.</p>
+  <section class="gallery">
+
+    <h3>Our Creative Designs ✨</h3>
+
+    <div class="images">
+
+      <!-- CARD 1 -->
+
+      <div class="card">
+
+        <img
+        src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+        alt="Website Design">
+
+        <div class="card-content">
+
+          <h4>Modern Website Design</h4>
+
+          <p>
+            Beautiful and professional website layouts designed
+            for startups and modern businesses.
+          </p>
+
+        </div>
+
       </div>
 
-      <div class="feature-card">
-        <h4>Development</h4>
-        <p>Fast and responsive websites for all devices.</p>
+      <!-- CARD 2 -->
+
+      <div class="card">
+
+        <img
+        src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3"
+        alt="Coding">
+
+        <div class="card-content">
+
+          <h4>Creative Development</h4>
+
+          <p>
+            Responsive and powerful development solutions
+            optimized for all devices and platforms.
+          </p>
+
+        </div>
+
       </div>
 
-      <div class="feature-card">
-        <h4>Branding</h4>
-        <p>Creative digital solutions for your business.</p>
+      <!-- CARD 3 -->
+
+      <div class="card">
+
+        <img
+        src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6"
+        alt="Branding">
+
+        <div class="card-content">
+
+          <h4>Digital Branding</h4>
+
+          <p>
+            Build your online identity with stylish branding,
+            UI design, and digital creativity.
+          </p>
+
+        </div>
+
       </div>
+
     </div>
+
   </section>
+
+  <!-- FOOTER -->
 
   <footer>
-    <p>© 2026 WebBrand. All rights reserved.</p>
+
+    <p>
+      © 2026 WebBrand. All rights reserved.
+    </p>
+
   </footer>
 
 </body>
